@@ -5,7 +5,39 @@ header {
     width: 100vw;
 }
 
+.logo {
+    padding: 1rem 1rem 0.5rem 1rem;
+}
+
+// Navigering
+
 nav {
     width: 100%;
     background-color: #6C698D;
+}
+
+ul {
+    margin: 0 auto;
+    max-width: 1100px;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+li a {
+    text-decoration: none;
+    padding: 1.25rem 1rem;
+    font-weight: 500;
+    color: #fff;
+    display: inline-block;
+}
+
+li a:hover {
+    background-color: #D4D2D5;
+    color: #6C698D;
+}
+
+li a.current {
+    background-color: #D4D2D5;
+    color: #6C698D;
 }
