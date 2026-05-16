@@ -22,3 +22,18 @@ th {
 td {
     text-align: center;
 }
+
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: none;
+    background: #6C698D;
+    color: #fff;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+}

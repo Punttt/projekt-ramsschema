@@ -17,6 +17,16 @@ section {
     padding: 2rem 0;
 }
 
+a {
+    color: #6C698D;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+}
+
 h1, h2, h3 {
     margin-bottom: 1rem;
 }
