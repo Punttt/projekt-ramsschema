@@ -17,3 +17,24 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 }
+
+.students {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 1rem;
+    align-items: center;
+
+    div {
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        ul {
+            margin-left: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}
