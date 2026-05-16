@@ -1,0 +1,24 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+td, th {
+    border-bottom: 1px solid grey;
+    padding: 8px;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
