@@ -1,0 +1,22 @@
+section {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 2rem;
+}
+
+div {
+    display: grid;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+input {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    display: block;
+    width: 100%;
+    font: inherit;
+}
