@@ -16,8 +16,8 @@
                     <td>{{course.courseCode}}</td>
                     <td>{{course.courseName}}</td>
                     <td>{{course.points}}</td>
-                    <td>{{course.subjectCode}}</td>
-                    <td><a [href]="course.syllabus">Kursplan</a></td>
+                    <td>{{course.subject}}</td>
+                    <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
                     <td><button class="btn" [id]="course.courseCode">Lägg till</button></td>
                 </tr>
             }
