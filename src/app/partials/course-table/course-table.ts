@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Course } from '../../models/course';
 
 @Component({
   selector: 'app-course-table',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './course-table.html',
   styleUrl: './course-table.scss',
 })
-export class CourseTable {}
+export class CourseTable {
+  @Input() courses: Course[] = [];
+}

@@ -11,22 +11,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>DT202G</td>
-                <td>Webbdesign 1</td>
-                <td>7,5</td>
-                <td>Webbutveckling</td>
-                <td><a href="/">Kursplan</a></td>
-                <td><button class="btn">Lägg till</button></td>
-            </tr>
-            <tr>
-                <td>DT202G</td>
-                <td>Webbdesign 1</td>
-                <td>7,5</td>
-                <td>Webbutveckling</td>
-                <td><a href="/">Kursplan</a></td>
-                <td><button class="btn">Lägg till</button></td>
-            </tr>
+            @for (course of courses; track course.courseCode) {
+                <tr>
+                    <td>{{course.courseCode}}</td>
+                    <td>{{course.courseName}}</td>
+                    <td>{{course.points}}</td>
+                    <td>{{course.subjectCode}}</td>
+                    <td><a [href]="course.syllabus">Kursplan</a></td>
+                    <td><button class="btn" [id]="course.courseCode">Lägg till</button></td>
+                </tr>
+            }
         </tbody>
     </table>       
 </section>
