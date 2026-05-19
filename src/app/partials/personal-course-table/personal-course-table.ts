@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-personal-course-table',
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './personal-course-table.html',
   styleUrl: './personal-course-table.scss',
 })
-export class PersonalCourseTable {}
+export class PersonalCourseTable implements OnInit{
+  ngOnInit(): void {
+    
+  }
+}

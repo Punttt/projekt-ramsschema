@@ -1,0 +1,40 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+th {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+td, th {
+    border-bottom: 1px solid grey;
+    padding: 8px;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: none;
+    background: tomato;
+    color: #fff;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+}
