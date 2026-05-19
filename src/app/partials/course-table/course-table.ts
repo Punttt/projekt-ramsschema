@@ -10,4 +10,19 @@ import { Course } from '../../models/course';
 export class CourseTable {
   @Input() courses: Course[] = [];
   
+  addCourse(course: Course) {
+    const saved = localStorage.getItem('savedCourses');
+    const savedCourses = saved ? JSON.parse(saved) : [];
+    
+    // Kolla om kursen redan är sparad
+    const exists = savedCourses.find((c: Course) => c.courseCode === course.courseCode);
+    
+    if (!exists) {
+      savedCourses.push(course);
+      localStorage.setItem('savedCourses', JSON.stringify(savedCourses));
+      console.log('Kurs sparad:', course.courseCode);
+    } else {
+      console.log('Kursen är redan sparad');
+    }
+  }
 }

@@ -18,7 +18,7 @@
                     <td>{{course.points}}</td>
                     <td>{{course.subject}}</td>
                     <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
-                    <td><button class="btn" [id]="course.courseCode">Lägg till</button></td>
+                    <td><button class="btn" [id]="course.courseCode" (click)="addCourse(course)">Lägg till</button></td>
                 </tr>
             }
         </tbody>
