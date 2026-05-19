@@ -9,4 +9,5 @@ import { Course } from '../../models/course';
 })
 export class CourseTable {
   @Input() courses: Course[] = [];
+  
 }
