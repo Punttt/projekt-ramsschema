@@ -15,4 +15,11 @@ export class PersonalCourseTable implements OnInit{
 
     console.log(`Antal sparade kurser är: ${this.courses.length}`);
   }
+
+  deleteCourse(course: any){
+    this.courses = this.courses.filter(c =>
+      c.courseCode !== course.courseCode || c.subjectCode !== course.subjectCode
+    );
+    localStorage.setItem('savedCourses', JSON.stringify(this.courses));
+  }
 }
