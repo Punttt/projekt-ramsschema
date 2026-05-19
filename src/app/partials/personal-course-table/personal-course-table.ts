@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './personal-course-table.scss',
 })
 export class PersonalCourseTable implements OnInit{
+  courses: any[] = [];
+
   ngOnInit(): void {
-    
+    const saved = localStorage.getItem('savedCourses');
+    this.courses = saved ? JSON.parse(saved) : [];
+
+    console.log(`Antal sparade kurser är: ${this.courses.length}`);
   }
 }
