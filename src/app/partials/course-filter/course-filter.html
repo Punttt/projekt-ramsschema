@@ -1,10 +1,10 @@
 <section>
   <div>
     <label for="filter">Filtrera kurser:</label>
-    <input id="filter" type="text" placeholder="Sök kurs..."/>
+    <input id="filter" type="text" placeholder="Sök kurs..." [(ngModel)]="searchText" (input)="onSearchChange()" />
   </div>
   <div>
     <label for="subjectFilter">Ämne:</label>
-    <input id="subjectFilter" type="text" placeholder="Sök ämne..."/>
+    <input id="subjectFilter" type="text" placeholder="Sök ämne..." [(ngModel)]="subjectText" (input)="onSubjectChange()"/>
   </div>
 </section>
