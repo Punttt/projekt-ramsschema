@@ -1,5 +1,5 @@
 <div class="container">
     <h1>Kurser</h1>
-    <app-course-filter />
-    <app-course-table [courses]="(courses$ | async) ?? []" /> 
+    <app-course-filter (searchChange)="onSearchChange($event)" (subjectChange)="onSubjectChange($event)" />
+    <app-course-table [courses]="filteredCourses" /> 
 </div>
