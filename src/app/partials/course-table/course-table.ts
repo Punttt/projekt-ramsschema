@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from '../../models/course';
+import { SortColumn } from '../../pages/courses/courses';
 
 @Component({
   selector: 'app-course-table',
@@ -9,6 +10,14 @@ import { Course } from '../../models/course';
 })
 export class CourseTable {
   @Input() courses: Course[] = [];
+  @Input() sortColumn: SortColumn | null = null;
+  @Input() sortDirection: 'asc' | 'desc' = 'asc';
+
+  @Output() sortChange = new EventEmitter<SortColumn>();
+
+  onHeaderClick(column: SortColumn): void {
+    this.sortChange.emit(column);
+  }
   
   addCourse(course: Course) {
     const saved = localStorage.getItem('savedCourses');
