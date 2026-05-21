@@ -21,15 +21,19 @@ export class Courses {
   searchText = "";
   subjectText = "";
 
+  // sorteringstillstånd
+  sortColumn: SortColumn | null = null;
+  sortDirection: SortDirection = 'asc';
+
   // Hela kurslistan från service
   allCourses = this.courseService.courses;
 
-  // Filtrerad lista - beräknas om varje gång den läses
+  // Filtrera och sortera listan
   get filteredCourses() {
     const search = this.searchText.toLowerCase();
     const subject = this.subjectText.toLowerCase();
 
-    return this.allCourses().filter(course => {
+    const filtered = this.allCourses().filter(course => {
       const matchSearch = !search
         || course.courseCode.toLowerCase().includes(search)
         || course.courseName.toLowerCase().includes(search);
@@ -38,6 +42,28 @@ export class Courses {
         || course.subject.toLowerCase().includes(subject);
 
       return matchSearch && matchSubject;
+    });
+
+    // sorterar
+    if(!this.sortColumn) {
+      return filtered;
+    }
+
+    const col = this.sortColumn;
+    const dir = this.sortDirection;
+
+    return [...filtered].sort((a, b) => {
+      let result = 0;
+
+      if (col === 'points') {
+        // Numerisk sortering
+        result = a.points - b.points;
+      } else {
+        // Sträng-sortering
+        result = a[col].localeCompare(b[col], 'sv');
+      }
+
+      return dir === 'asc' ? result : -result;
     });
   }
 
@@ -53,10 +79,10 @@ export class Courses {
 
   // Anropas när man klickar på kolumn för sortering
   onSortChange(column: SortColumn): void {
-    if (this.SortColumn === column ) {
+    if (this.sortColumn === column ) {
       this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
     } else {
-      this.SortColumn = column;
+      this.sortColumn = column;
       this.sortDirection = 'asc';
     }
   }
