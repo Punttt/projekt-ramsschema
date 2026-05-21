@@ -46,4 +46,14 @@ export class Courses {
   onSubjectChange(value: string): void {
     this.subjectText = value;
   }
+
+  // Anropas när man klickar på kolumn för sortering
+  onSortChange(column: SortColumn): void {
+    if (this.SortColumn === column ) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.SortColumn = column;
+      this.sortDirection = 'asc';
+    }
+  }
 }
