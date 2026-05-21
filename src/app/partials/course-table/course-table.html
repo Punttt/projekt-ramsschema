@@ -2,10 +2,10 @@
     <table>
         <thead>
             <tr>
-                <th>Kurskod</th>
-                <th>Kursnamn</th>
-                <th>Poäng</th>
-                <th>Ämne</th>
+                <th (click)="onHeaderClick('courseCode')">Kurskod</th>
+                <th (click)="onHeaderClick('courseName')">Kursnamn</th>
+                <th (click)="onHeaderClick('points')">Poäng</th>
+                <th (click)="onHeaderClick('subject')">Ämne</th>
                 <th>Kursplan</th>
                 <th>Lägg till</th>
             </tr>
