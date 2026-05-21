@@ -3,6 +3,10 @@ import { CourseFilter } from "../../partials/course-filter/course-filter";
 import { CourseTable } from "../../partials/course-table/course-table";
 import { CourseService } from '../../services/course';
 
+// Lägger in typer för sortering
+export type SortColumn = 'courseCode' | 'courseName' | 'points' | 'subject';
+export type SortDirection = 'asc' | 'desc';
+
 @Component({
   selector: 'app-courses',
   imports: [CourseFilter, CourseTable],
