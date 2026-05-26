@@ -22,3 +22,11 @@ input {
     width: 100%;
     font: inherit;
 }
+
+// media quereie
+@media (max-width: 570px) {
+    section {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
