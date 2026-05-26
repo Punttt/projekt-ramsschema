@@ -27,7 +27,7 @@ export class Schedule {
   // Lägga till kurs - validering för dubblett
   addCourse(course: Course): boolean {
     const current = this.savedCoursesSignal();
-    const exists = current.some(c => c.courseCode === course.courseCode);
+    const exists = current.some(c => c.courseCode === course.courseCode && c.subjectCode === course.subjectCode);
 
     if(exists) {
       return false;
