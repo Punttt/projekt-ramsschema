@@ -1,0 +1,26 @@
+<section>
+    <table>
+        <thead>
+            <tr>
+                <th (click)="onHeaderClick('courseCode')">Kurskod</th>
+                <th (click)="onHeaderClick('courseName')">Kursnamn</th>
+                <th (click)="onHeaderClick('points')">Poäng</th>
+                <th (click)="onHeaderClick('subject')">Ämne</th>
+                <th>Kursplan</th>
+                <th>Lägg till</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (course of courses; track course.courseCode + '-' + course.subjectCode) {
+                <tr>
+                    <td>{{course.courseCode}}</td>
+                    <td>{{course.courseName}}</td>
+                    <td>{{course.points}}hp</td>
+                    <td>{{course.subject}}</td>
+                    <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
+                    <td><button class="btn" [id]="course.courseCode" (click)="addCourse(course)">Lägg till</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>       
+</section>

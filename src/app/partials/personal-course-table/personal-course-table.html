@@ -1,0 +1,27 @@
+<section>
+    <table>
+        <thead>
+            <tr>
+                <th>Kurskod</th>
+                <th>Kursnamn</th>
+                <th>Poäng</th>
+                <th>Ämne</th>
+                <th>Kursplan</th>
+                <th>Ta bort</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (course of courses(); track course.courseCode + '-' + course.subjectCode) {
+                <tr>
+                    <td>{{course.courseCode}}</td>
+                    <td>{{course.courseName}}</td>
+                    <td>{{course.points}}hp</td>
+                    <td>{{course.subject}}</td>
+                    <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
+                    <td><button class="btn" [id]="course.courseCode" (click)="deleteCourses(course)">Ta bort</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>  
+    <p>Total antal högskolepoäng: {{ totalPoints() }}hp</p>     
+</section>

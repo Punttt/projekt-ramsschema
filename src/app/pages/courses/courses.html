@@ -1,0 +1,5 @@
+<div class="container">
+    <h1>Kurser</h1>
+    <app-course-filter (searchChange)="onSearchChange($event)" (subjectChange)="onSubjectChange($event)" />
+    <app-course-table [courses]="filteredCourses" (sortChange)="onSortChange($event)" /> 
+</div>
