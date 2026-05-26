@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Schedule } from '../../services/schedule';
+import { Course } from '../../models/course';
 
 @Component({
   selector: 'app-personal-course-table',
@@ -6,20 +8,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './personal-course-table.html',
   styleUrl: './personal-course-table.scss',
 })
-export class PersonalCourseTable implements OnInit{
-  courses: any[] = [];
+export class PersonalCourseTable {
+  private scheduleService = inject(Schedule);
 
-  ngOnInit(): void {
-    const saved = localStorage.getItem('savedCourses');
-    this.courses = saved ? JSON.parse(saved) : [];
+  // Läser in valda kurser från signalen
+  courses = this.scheduleService.savedCourses;
 
-    console.log(`Antal sparade kurser är: ${this.courses.length}`);
-  }
-
-  deleteCourse(course: any){
-    this.courses = this.courses.filter(c =>
-      c.courseCode !== course.courseCode || c.subjectCode !== course.subjectCode
-    );
-    localStorage.setItem('savedCourses', JSON.stringify(this.courses));
+  deleteCourses(course: Course): void {
+    this.scheduleService.removeCourse(course);
   }
 }

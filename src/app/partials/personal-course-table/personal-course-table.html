@@ -11,14 +11,14 @@
             </tr>
         </thead>
         <tbody>
-            @for (course of courses; track course.courseCode + '-' + course.subjectCode) {
+            @for (course of courses(); track course.courseCode + '-' + course.subjectCode) {
                 <tr>
                     <td>{{course.courseCode}}</td>
                     <td>{{course.courseName}}</td>
                     <td>{{course.points}}</td>
                     <td>{{course.subject}}</td>
                     <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
-                    <td><button class="btn" [id]="course.courseCode" (click)="deleteCourse(course)">Ta bort</button></td>
+                    <td><button class="btn" [id]="course.courseCode" (click)="deleteCourses(course)">Ta bort</button></td>
                 </tr>
             }
         </tbody>
