@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Course } from '../../models/course';
 import { SortColumn } from '../../pages/courses/courses';
+import { Schedule } from '../../services/schedule';
 
 @Component({
   selector: 'app-course-table',
@@ -9,6 +10,8 @@ import { SortColumn } from '../../pages/courses/courses';
   styleUrl: './course-table.scss',
 })
 export class CourseTable {
+  private scheduleService = inject(Schedule);
+
   @Input() courses: Course[] = [];
   @Input() sortColumn: SortColumn | null = null;
   @Input() sortDirection: 'asc' | 'desc' = 'asc';
@@ -20,18 +23,12 @@ export class CourseTable {
   }
   
   addCourse(course: Course) {
-    const saved = localStorage.getItem('savedCourses');
-    const savedCourses = saved ? JSON.parse(saved) : [];
-    
-    // Kolla om kursen redan är sparad
-    const exists = savedCourses.find((c: Course) => c.courseCode === course.courseCode);
-    
-    if (!exists) {
-      savedCourses.push(course);
-      localStorage.setItem('savedCourses', JSON.stringify(savedCourses));
-      console.log('Kurs sparad:', course.courseCode);
+    const added = this.scheduleService.addCourse(course);
+
+    if(added) {
+      console.log("Kurs är sparad: " + course.courseCode);
     } else {
-      console.log('Kursen är redan sparad');
+      console.log("Kursen är redan sparad!");
     }
   }
 }
