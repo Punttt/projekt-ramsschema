@@ -1,5 +1,6 @@
 <div class="container">
     <h1>Kurser</h1>
     <app-course-filter (searchChange)="onSearchChange($event)" (subjectChange)="onSubjectChange($event)" />
+    <p class="course-count">Visar {{ filteredCourses.length }} kurser av totalt {{ allCourses().length }}</p>
     <app-course-table [courses]="filteredCourses" (sortChange)="onSortChange($event)" /> 
 </div>
