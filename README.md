@@ -6,7 +6,7 @@ En Angular-applikation som låter studenter söka bland kurser och
 skapa ett eget ramschema. En webbplats för ett fiktivt lärosäte
 
 ## Publicering av webbplats
-https://webtech-uni.netlify.app/home
+https://webtech-uni.netlify.app
 
 ## Betygsnivå
 Sikte på godkänt – grundkraven enligt uppgiftsbeskrivningen.
